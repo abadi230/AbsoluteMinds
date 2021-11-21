@@ -90,8 +90,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tLM-Ll-UUy">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tLM-Ll-UUy">
                                 <rect key="frame" x="47" y="443" width="320" height="211"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="gf0-YI-6Ca"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="6nU-on-Nnc"/>
                             </scrollView>
@@ -101,7 +102,6 @@
                         <constraints>
                             <constraint firstItem="yWL-pO-wYD" firstAttribute="bottom" secondItem="eoY-gO-84X" secondAttribute="bottom" constant="30" id="3aG-ak-1wp"/>
                             <constraint firstItem="y5b-b6-0FE" firstAttribute="top" secondItem="9IE-4J-NdF" secondAttribute="bottom" constant="37" id="5X8-I5-CTN"/>
-                            <constraint firstItem="yWL-pO-wYD" firstAttribute="trailing" secondItem="tLM-Ll-UUy" secondAttribute="trailing" constant="20" id="9og-5h-DNL"/>
                             <constraint firstItem="9IE-4J-NdF" firstAttribute="top" secondItem="Y11-ZV-jCf" secondAttribute="bottom" constant="45" id="CKT-Mj-Mqq"/>
                             <constraint firstItem="0l3-xj-96S" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="VnE-3r-gcV"/>
                             <constraint firstItem="yWL-pO-wYD" firstAttribute="trailing" secondItem="Y11-ZV-jCf" secondAttribute="trailing" constant="20" id="ZtL-71-aIc"/>
@@ -110,13 +110,10 @@
                             <constraint firstItem="Y11-ZV-jCf" firstAttribute="top" secondItem="0l3-xj-96S" secondAttribute="bottom" constant="32" id="cCL-nn-6jy"/>
                             <constraint firstItem="eoY-gO-84X" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="cpZ-KD-yQg"/>
                             <constraint firstItem="yWL-pO-wYD" firstAttribute="trailing" secondItem="9IE-4J-NdF" secondAttribute="trailing" constant="20" id="efn-wS-Hen"/>
-                            <constraint firstItem="tLM-Ll-UUy" firstAttribute="top" secondItem="y5b-b6-0FE" secondAttribute="bottom" constant="40" id="erx-LQ-ZNs"/>
                             <constraint firstItem="Y11-ZV-jCf" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="gjX-Cl-VdI"/>
                             <constraint firstItem="9IE-4J-NdF" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="iDb-K3-GnG"/>
                             <constraint firstItem="yWL-pO-wYD" firstAttribute="trailing" secondItem="eoY-gO-84X" secondAttribute="trailing" constant="20" id="iYu-x4-pJ5"/>
                             <constraint firstItem="0l3-xj-96S" firstAttribute="top" secondItem="yWL-pO-wYD" secondAttribute="top" constant="20" id="n0T-am-4qE"/>
-                            <constraint firstItem="eoY-gO-84X" firstAttribute="top" secondItem="tLM-Ll-UUy" secondAttribute="bottom" constant="40" id="r04-Jl-law"/>
-                            <constraint firstItem="tLM-Ll-UUy" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="tat-8s-f6U"/>
                             <constraint firstItem="y5b-b6-0FE" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="wfv-jc-IF8"/>
                         </constraints>
                     </view>
