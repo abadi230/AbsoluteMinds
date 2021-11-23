@@ -8,11 +8,13 @@
 import UIKit
 import CoreData
 
+
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     let api = Api()
     var photos : [UIImage] = []
 
     @IBOutlet weak var collectionView: UICollectionView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         api.getData()
     }
+
 
     // function from protocol UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -32,6 +35,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         return cell
     }
+
 
 }
 
