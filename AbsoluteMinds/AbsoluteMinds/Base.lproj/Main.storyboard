@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6pD-Sp-cgR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6pD-Sp-cgR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -53,12 +53,12 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="66.964285714285708"/>
         </scene>
-        <!--View Controller-->
+        <!--DetailsVC-->
         <scene sceneID="nkx-PR-0J2">
             <objects>
-                <viewController id="SB2-zx-Uts" sceneMemberID="viewController">
+                <viewController id="SB2-zx-Uts" customClass="DetailsVC" customModule="AbsoluteMinds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jEn-az-jXC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0l3-xj-96S">
@@ -90,28 +90,66 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoY-gO-84X">
+
                                 <rect key="frame" x="20" y="801" width="374" height="31"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+
+                                <rect key="frame" x="20" y="1405" width="374" height="31"/>
+
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
+
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tLM-Ll-UUy">
                                 <rect key="frame" x="47" y="443" width="320" height="211"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="gf0-YI-6Ca"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="6nU-on-Nnc"/>
+
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLM-Ll-UUy">
+                                <rect key="frame" x="47" y="443" width="320" height="900"/>
+                                <subviews>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0G-s5-AlG" colorLabel="IBBuiltInLabel-Red">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="2211"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0b-7R-RjS">
+                                                <rect key="frame" x="20" y="20" width="280" height="2171"/>
+                                                <mutableString key="text">Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label LabelLabel Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.950996648747231" green="1" blue="0.85569699979312597" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="u0b-7R-RjS" secondAttribute="bottom" constant="20" id="Nvy-tW-eB6"/>
+                                            <constraint firstItem="u0b-7R-RjS" firstAttribute="leading" secondItem="l0G-s5-AlG" secondAttribute="leading" constant="20" id="lmz-75-CfW"/>
+                                            <constraint firstItem="u0b-7R-RjS" firstAttribute="top" secondItem="l0G-s5-AlG" secondAttribute="top" constant="20" id="tVf-KJ-Wvd"/>
+                                            <constraint firstAttribute="trailing" secondItem="u0b-7R-RjS" secondAttribute="trailing" constant="20" id="vuF-Ae-rck"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="l0G-s5-AlG" secondAttribute="bottom" id="Cv5-FM-I66"/>
+                                    <constraint firstAttribute="trailing" secondItem="l0G-s5-AlG" secondAttribute="trailing" id="QIR-tH-VVR"/>
+                                    <constraint firstItem="l0G-s5-AlG" firstAttribute="leading" secondItem="tLM-Ll-UUy" secondAttribute="leading" id="eVd-Ar-OoU"/>
+                                    <constraint firstItem="l0G-s5-AlG" firstAttribute="top" secondItem="tLM-Ll-UUy" secondAttribute="top" id="ghq-IS-r3x"/>
+                                </constraints>
+
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yWL-pO-wYD"/>
                         <color key="backgroundColor" red="0.89019608500000003" green="0.78823530669999997" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="yWL-pO-wYD" firstAttribute="bottom" secondItem="eoY-gO-84X" secondAttribute="bottom" constant="30" id="3aG-ak-1wp"/>
+                            <constraint firstItem="tLM-Ll-UUy" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="47" id="5BJ-4M-pTT"/>
                             <constraint firstItem="y5b-b6-0FE" firstAttribute="top" secondItem="9IE-4J-NdF" secondAttribute="bottom" constant="37" id="5X8-I5-CTN"/>
-                            <constraint firstItem="yWL-pO-wYD" firstAttribute="trailing" secondItem="tLM-Ll-UUy" secondAttribute="trailing" constant="20" id="9og-5h-DNL"/>
+                            <constraint firstItem="yWL-pO-wYD" firstAttribute="trailing" secondItem="tLM-Ll-UUy" secondAttribute="trailing" constant="47" id="Bdx-zt-05p"/>
                             <constraint firstItem="9IE-4J-NdF" firstAttribute="top" secondItem="Y11-ZV-jCf" secondAttribute="bottom" constant="45" id="CKT-Mj-Mqq"/>
+                            <constraint firstItem="eoY-gO-84X" firstAttribute="top" secondItem="tLM-Ll-UUy" secondAttribute="bottom" constant="62" id="CYs-sV-eXw"/>
                             <constraint firstItem="0l3-xj-96S" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="VnE-3r-gcV"/>
                             <constraint firstItem="yWL-pO-wYD" firstAttribute="trailing" secondItem="Y11-ZV-jCf" secondAttribute="trailing" constant="20" id="ZtL-71-aIc"/>
                             <constraint firstItem="yWL-pO-wYD" firstAttribute="trailing" secondItem="0l3-xj-96S" secondAttribute="trailing" constant="20" id="b8Y-s7-pIu"/>
@@ -119,16 +157,22 @@
                             <constraint firstItem="Y11-ZV-jCf" firstAttribute="top" secondItem="0l3-xj-96S" secondAttribute="bottom" constant="32" id="cCL-nn-6jy"/>
                             <constraint firstItem="eoY-gO-84X" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="cpZ-KD-yQg"/>
                             <constraint firstItem="yWL-pO-wYD" firstAttribute="trailing" secondItem="9IE-4J-NdF" secondAttribute="trailing" constant="20" id="efn-wS-Hen"/>
-                            <constraint firstItem="tLM-Ll-UUy" firstAttribute="top" secondItem="y5b-b6-0FE" secondAttribute="bottom" constant="40" id="erx-LQ-ZNs"/>
                             <constraint firstItem="Y11-ZV-jCf" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="gjX-Cl-VdI"/>
+                            <constraint firstItem="l0G-s5-AlG" firstAttribute="width" secondItem="jEn-az-jXC" secondAttribute="width" multiplier="0.772947" id="hvg-Dd-tfA"/>
                             <constraint firstItem="9IE-4J-NdF" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="iDb-K3-GnG"/>
                             <constraint firstItem="yWL-pO-wYD" firstAttribute="trailing" secondItem="eoY-gO-84X" secondAttribute="trailing" constant="20" id="iYu-x4-pJ5"/>
                             <constraint firstItem="0l3-xj-96S" firstAttribute="top" secondItem="yWL-pO-wYD" secondAttribute="top" constant="20" id="n0T-am-4qE"/>
-                            <constraint firstItem="eoY-gO-84X" firstAttribute="top" secondItem="tLM-Ll-UUy" secondAttribute="bottom" constant="40" id="r04-Jl-law"/>
-                            <constraint firstItem="tLM-Ll-UUy" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="tat-8s-f6U"/>
+                            <constraint firstItem="tLM-Ll-UUy" firstAttribute="top" secondItem="y5b-b6-0FE" secondAttribute="bottom" constant="47" id="qN0-QM-k8c"/>
                             <constraint firstItem="y5b-b6-0FE" firstAttribute="leading" secondItem="yWL-pO-wYD" secondAttribute="leading" constant="20" id="wfv-jc-IF8"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="1500"/>
+                    <connections>
+                        <outlet property="authorLable" destination="9IE-4J-NdF" id="r8D-QS-HfQ"/>
+                        <outlet property="dateLable" destination="y5b-b6-0FE" id="pla-xv-UKk"/>
+                        <outlet property="imageVeiw" destination="Y11-ZV-jCf" id="1Kd-3w-UdM"/>
+                        <outlet property="titlelLable" destination="0l3-xj-96S" id="98A-J7-1db"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grA-ym-NaF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
