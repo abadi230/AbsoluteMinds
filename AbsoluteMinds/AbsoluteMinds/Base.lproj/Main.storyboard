@@ -103,12 +103,6 @@
                                 </buttonConfiguration>
                             </button>
 
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tLM-Ll-UUy">
-                                <rect key="frame" x="47" y="443" width="320" height="211"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="gf0-YI-6Ca"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="6nU-on-Nnc"/>
-
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLM-Ll-UUy">
                                 <rect key="frame" x="47" y="443" width="320" height="900"/>
                                 <subviews>
@@ -138,7 +132,6 @@
                                     <constraint firstItem="l0G-s5-AlG" firstAttribute="leading" secondItem="tLM-Ll-UUy" secondAttribute="leading" id="eVd-Ar-OoU"/>
                                     <constraint firstItem="l0G-s5-AlG" firstAttribute="top" secondItem="tLM-Ll-UUy" secondAttribute="top" id="ghq-IS-r3x"/>
                                 </constraints>
-
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yWL-pO-wYD"/>

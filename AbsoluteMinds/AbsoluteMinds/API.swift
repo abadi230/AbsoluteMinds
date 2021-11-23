@@ -42,7 +42,7 @@ class Api{
         //        }
         //        task.resume()
         //
-        
+        // request for image
         let imageUrl =  "https://books.google.com/books/content?id=hdMuBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
         
         var urlRequest = URLRequest(url: URL(string: imageUrl)!)
@@ -71,12 +71,12 @@ class Api{
     
 
 class Library : Codable {
-var items : [Book]!
+var items : [Source]!
 var totalItems : Double
 
 }
 
-struct Book : Codable{
+struct Source: Codable{
 var volumeInfo : BookInfo
 var id : String
 }
