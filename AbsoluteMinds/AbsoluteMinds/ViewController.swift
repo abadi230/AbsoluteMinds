@@ -14,8 +14,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var photos : [UIImage] = []
 
     @IBOutlet weak var collectionView: UICollectionView!
-
-    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +35,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
 
-    // function from protocol UICollectionViewDataSource
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        photos.count
-    }
-    // function from protocol UICollectionViewDataSource
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookID", for: indexPath) as! bookCollectionCell
-        
-        return cell
-    }
+   
 
 }
 
