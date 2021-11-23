@@ -8,9 +8,12 @@
 import UIKit
 import CoreData
 
+
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     let api = Api()
     var photos : [UIImage] = []
+
+    @IBOutlet weak var collectionView: UICollectionView!
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -20,6 +23,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.dataSource = self
         collectionView.delegate = self
         api.getData()
+    }
+
+
+    // function from protocol UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        photos.count
+    }
+    // function from protocol UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookID", for: indexPath) as! bookCollectionCell
+        
+        return cell
     }
 
     // function from protocol UICollectionViewDataSource
