@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
@@ -19,5 +20,5 @@ class ViewController: UIViewController {
         bookApi.getData()
     }
 
-    
+
 }
