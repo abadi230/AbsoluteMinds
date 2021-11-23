@@ -22,49 +22,48 @@ class Api{
         urlComponents.host = "google-books.p.rapidapi.com"
         urlComponents.path = "/volumes"
         
-        //
-        //
-        //        var urlRequest = URLRequest(url: urlComponents.url!)
-        //        urlRequest.allHTTPHeaderFields = headers
-        //
-        //        print(urlRequest.url!)
-        //        let urlSession = URLSession.shared
-        //
-        //        let task = urlSession.dataTask(with: urlRequest as URLRequest) { (data: Data?, res: URLResponse?, err: Error?) in
-        //            do {
-        //                let jsonDecoder = JSONDecoder()
-        //                let decodedRes = try jsonDecoder.decode(Library.self, from: data!)
-        //
-        //                print(decodedRes.items.map{ $0.volumeInfo })
-        //            }catch {
-        //                print("data not found \(error)")
-        //            }
-        //        }
-        //        task.resume()
-        //
-        // request for image
-        let imageUrl =  "https://books.google.com/books/content?id=hdMuBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
-        
-        var urlRequest = URLRequest(url: URL(string: imageUrl)!)
-        //urlRequest.allHTTPHeaderFields = headers
-        
-        //print(urlRequest.url!)
         
         
+        var urlRequest = URLRequest(url: urlComponents.url!)
+        urlRequest.allHTTPHeaderFields = headers
         
         let urlSession = URLSession.shared
         
-        
         let task = urlSession.dataTask(with: urlRequest as URLRequest) { (data: Data?, res: URLResponse?, err: Error?) in
             do {
-                let imageBook = UIImage(data: data!)
-                print (imageBook)
+                let jsonDecoder = JSONDecoder()
+                let decodedRes = try jsonDecoder.decode(Library.self, from: data!)
                 
-            } catch {
+                print(decodedRes.items.map{ $0.volumeInfo })
+            }catch {
                 print("data not found \(error)")
             }
         }
         task.resume()
+        
+//        // request for image
+//        let imageUrl =  "https://books.google.com/books/content?id=hdMuBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
+//
+//        var urlImageRequest = URLRequest(url: URL(string: imageUrl)!)
+//        //urlRequest.allHTTPHeaderFields = headers
+//
+        print(urlRequest.url!)
+//
+//
+//
+//        let urlImageSession = URLSession.shared
+//
+//
+//        let imageTask = urlImageSession.dataTask(with: urlImageRequest as URLRequest) { (data: Data?, res: URLResponse?, err: Error?) in
+//            do {
+//                let imageBook = UIImage(data: data!)
+//                print (imageBook)
+//
+//            } catch {
+//                print("data not found \(error)")
+//            }
+//        }
+//        imageTask.resume()
     }
     
 }
@@ -86,5 +85,5 @@ var title: String
 var authors : [String]?
 var publishedDate : String
 var description: String
-var imageLinks: String?
+    var imageLinks: [String: String]?
 }
