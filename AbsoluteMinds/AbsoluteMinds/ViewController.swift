@@ -8,15 +8,30 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    let api = Api()
+    var photos : [UIImage] = []
 
-    var bookApi = Api()
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        bookApi.getData()
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        api.getData()
     }
 
-    
+    // function from protocol UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        photos.count
+    }
+    // function from protocol UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookID", for: indexPath) as! bookCollectionCell
+        
+        return cell
+    }
+
 }
+
