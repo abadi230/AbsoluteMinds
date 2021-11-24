@@ -16,26 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Absolute Minds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhd-dL-oEd">
-                                <rect key="frame" x="20" y="144" width="374" height="38.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="_1_" translatesAutoresizingMaskIntoConstraints="NO" id="GcZ-Jn-ENt">
-                                <rect key="frame" x="20" y="222.5" width="374" height="461"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Jhd-dL-oEd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Dj4-Vs-bVV"/>
-                            <constraint firstItem="GcZ-Jn-ENt" firstAttribute="top" secondItem="Jhd-dL-oEd" secondAttribute="bottom" constant="40" id="N2I-Ce-rG4"/>
-                            <constraint firstItem="Jhd-dL-oEd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Smc-sH-2AS"/>
-                            <constraint firstItem="GcZ-Jn-ENt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="oue-su-u24"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GcZ-Jn-ENt" secondAttribute="trailing" constant="20" id="qDS-cc-NSL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jhd-dL-oEd" secondAttribute="trailing" constant="20" id="ydm-lJ-oy2"/>
+                            <constraint firstItem="GcZ-Jn-ENt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2dh-9x-W9t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GcZ-Jn-ENt" secondAttribute="bottom" id="Gba-1x-WAv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GcZ-Jn-ENt" secondAttribute="trailing" id="icU-cj-Kte"/>
+                            <constraint firstItem="GcZ-Jn-ENt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="p1R-nd-qLc"/>
                         </constraints>
                     </view>
                 </viewController>
