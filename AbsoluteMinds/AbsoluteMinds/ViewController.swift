@@ -9,8 +9,14 @@ import UIKit
 import CoreData
 
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DownloadDelegate {
+    
+    func getBookInfo(_ books: [BookInfo]) {
+        print(books)
+    }
+    
     let api = Api()
+    
     var photos : [UIImage] = []
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,6 +26,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
+        api.delegate = self
         api.getData()
     }
 
