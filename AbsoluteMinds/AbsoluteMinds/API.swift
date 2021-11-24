@@ -8,8 +8,14 @@
 import Foundation
 import UIKit
 
+protocol DownloadDelegate {
+    func getBookInfo(_ books: [BookInfo])
+}
 
-class Api{
+class Api {
+    var books : [Source] = []
+    var delegate: DownloadDelegate!
+
     func getData() {
         
         let headers = [
@@ -34,7 +40,17 @@ class Api{
                 let jsonDecoder = JSONDecoder()
                 let decodedRes = try jsonDecoder.decode(Library.self, from: data!)
                 
-                print(decodedRes.items.map{ $0.volumeInfo })
+//                print(decodedRes.items.map{ $0.volumeInfo })
+                let library = decodedRes.items
+//                library.map{
+//                    let newBook = $0
+//                    self.books.append(newBook)
+//
+//                }
+                self.books.append(contentsOf: library!)
+                let bookInfo = self.books.map{$0.volumeInfo}
+                self.delegate.getBookInfo(bookInfo)
+                
             }catch {
                 print("data not found \(error)")
             }
@@ -45,14 +61,8 @@ class Api{
 //        let imageUrl =  "https://books.google.com/books/content?id=hdMuBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
 //
 //        var urlImageRequest = URLRequest(url: URL(string: imageUrl)!)
-//        //urlRequest.allHTTPHeaderFields = headers
-//
-        print(urlRequest.url!)
-//
-//
-//
+
 //        let urlImageSession = URLSession.shared
-//
 //
 //        let imageTask = urlImageSession.dataTask(with: urlImageRequest as URLRequest) { (data: Data?, res: URLResponse?, err: Error?) in
 //            do {
@@ -65,7 +75,6 @@ class Api{
 //        }
 //        imageTask.resume()
     }
-    
 }
     
 
@@ -85,5 +94,5 @@ var title: String
 var authors : [String]?
 var publishedDate : String
 var description: String
-    var imageLinks: [String: String]?
+var imageLinks: [String: String]?
 }
