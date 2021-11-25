@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 
 
+
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
@@ -16,6 +17,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var library = Library()
     var books : [Source] = []
     var booksInfo : [BookInfo] = []
+
     
     var photos : [UIImage] = []
     var titles : [String] = []
@@ -29,6 +31,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
+
         collectionView.register(UINib(nibName: "BookCVCell", bundle: nil), forCellWithReuseIdentifier: "BookCell")
         getData()
 
