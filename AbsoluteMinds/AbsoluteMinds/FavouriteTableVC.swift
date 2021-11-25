@@ -11,6 +11,8 @@ class FavouriteTableVC: UITableViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var result = [Book]()
+    
     let fackTitles = [
         "Ear, Nose, Throat, and Tracheobronchial Diseases in Dogs and Cats",
         "All Eye Cats",
@@ -23,6 +25,7 @@ class FavouriteTableVC: UITableViewController {
         "Health for Dogs & Cats",
         "Hemingway's Cats"
     ]
+    
     let fakeDetails = [
         "        Ear, Nose, Throat, and Tracheobronchial Diseases in Dogs and Cats is the first textbook to provide a complete overview of all ENT diseases, both common and rare. It includes such problems as inflammation of the outer ear, deafness, nasal discharge, swallowing disorders, and cough. Detailed and up to date clinical information gives insight into ENT function and dysfunction for teachers and researchers, veterinarians in practice and veterinary students. Six chapters give key information on functional considerations, aetiology, clinical signs, diagnosis, and therapy of ENT disorders. Special diagnostic and imaging techniques are described in detail. Approximately 180 top quality illustrations emphasize and supplement the specific features of the diseases and disorders described in the text. A detailed index gives easy access to the content of this book. This unique textbook will provide a highly useful and informative reference guide to everyday practice, based on the author¿s 35 years as a specialist in ear, nose, throat, and tracheobronchial diseases in companion animals.",
         
@@ -44,20 +47,14 @@ class FavouriteTableVC: UITableViewController {
         
         "This unique biography of Ernest Hemingway, illustrated with more than two hundred photographs, reveals the legendary writer's affinity for the companion animals he kept throughout his lifetime."
     ]
-
-    var result = [Book]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.delegate=self
-        tableView.dataSource=self
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         for item in fackTitles {
             let newBook = Book(context: context)
             newBook.title = item
@@ -72,46 +69,12 @@ class FavouriteTableVC: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        
         return fackTitles.count
     }
-    
-    
-    // Create
-    
-   
-    func saveData(){
-        
-        
-        
-        do {
-            try context.save()
-        } catch {
-            print("Unable to save")
-        }
-        fetchDataFromDB()
-        tableView.reloadData()
-    }
-    
-    //Update
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        //self.result[indexPath.row].name = textBox?.text
-        self.saveData()
-        self.fetchDataFromDB()
-        do { try! self.context.save(); self.fetchDataFromDB()}
-        
-    }
-    
-    
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -122,6 +85,26 @@ class FavouriteTableVC: UITableViewController {
         return cell!
     }
     
+    // Create
+    
+    func saveData(){
+        do {
+            try context.save()
+        } catch {
+            print("Unable to save")
+        }
+        fetchDataFromDB()
+        tableView.reloadData()
+    }
+    
+    //Update
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.saveData()
+        self.fetchDataFromDB()
+        do { try! self.context.save(); self.fetchDataFromDB()}
+        
+    }
     
     /*
      // Override to support conditional editing of the table view.
@@ -174,7 +157,7 @@ class FavouriteTableVC: UITableViewController {
         let request = Book.fetchRequest()
         do {
             result = try! context.fetch(request)
-            //TDOD: if you want to display data in tableView Reload tableview tableView.reloadData()
+            
         }
     }
     
