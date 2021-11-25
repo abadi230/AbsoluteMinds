@@ -47,14 +47,26 @@ class FavouriteTableVC: UITableViewController {
 
     var result = [Book]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        tableView.delegate=self
+        tableView.dataSource=self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        for item in fackTitles {
+            let newBook = Book(context: context)
+            newBook.title = item
+        }
+        for item in fakeDetails {
+            let newBook = Book(context: context)
+            newBook.detail = item
+        }
+        self.saveData()
     }
     
     // MARK: - Table view data source
@@ -76,15 +88,7 @@ class FavouriteTableVC: UITableViewController {
    
     func saveData(){
         
-        for item in fackTitles {
-            let newBook = Book(context: context)
-            newBook.title = item
-        }
-        for item in fakeDetails {
-            let newBook = Book(context: context)
-            newBook.detail = item
-        }
-        self.saveData()
+        
         
         do {
             try context.save()
@@ -92,6 +96,7 @@ class FavouriteTableVC: UITableViewController {
             print("Unable to save")
         }
         fetchDataFromDB()
+        tableView.reloadData()
     }
     
     //Update
@@ -110,10 +115,11 @@ class FavouriteTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as! BookCell
-        cell.titelLabel.text = fackTitles[indexPath.row]
-        cell.titalDetal.text = fakeDetails[indexPath.row]
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellBook", for: indexPath) as? BookCell
+        cell?.titelLabel.text =  fackTitles[indexPath.row]
+        cell?.titalDetal.text = fakeDetails[indexPath.row]
+        
+        return cell!
     }
     
     
