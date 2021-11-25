@@ -7,15 +7,37 @@
 
 import Foundation
 import UIKit
+class Library : Codable {
+var items : [Source]?
+//var totalItems : Double
+
+}
+
+struct Source: Codable{
+var volumeInfo : BookInfo
+var id : String
+}
+
+struct BookInfo : Codable{
+var title: String
+var authors : [String]?
+var publishedDate : String
+var description: String
+var imageLinks: [String: String]?
+}
+
 
 protocol DownloadDelegate {
     func getBookInfo(_ books: [BookInfo])
+    
 }
 
 class Api {
     var books : [Source] = []
     var delegate: DownloadDelegate!
 
+    
+    
     func getData() {
         
         let headers = [
@@ -42,6 +64,7 @@ class Api {
                 
 //                print(decodedRes.items.map{ $0.volumeInfo })
                 let library = decodedRes.items
+                
 //                library.map{
 //                    let newBook = $0
 //                    self.books.append(newBook)
@@ -50,6 +73,7 @@ class Api {
                 self.books.append(contentsOf: library!)
                 let bookInfo = self.books.map{$0.volumeInfo}
                 self.delegate.getBookInfo(bookInfo)
+             
                 
             }catch {
                 print("data not found \(error)")
@@ -78,21 +102,3 @@ class Api {
 }
     
 
-class Library : Codable {
-var items : [Source]!
-var totalItems : Double
-
-}
-
-struct Source: Codable{
-var volumeInfo : BookInfo
-var id : String
-}
-
-struct BookInfo : Codable{
-var title: String
-var authors : [String]?
-var publishedDate : String
-var description: String
-var imageLinks: [String: String]?
-}
