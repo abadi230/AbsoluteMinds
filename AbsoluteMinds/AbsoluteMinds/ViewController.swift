@@ -51,7 +51,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // create nip with custom cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCell", for: indexPath) as! BookCVCell
         // avoid out of range
-        if photos.indices.contains(0){
+        if (photos.indices.contains(0) && indexPath.row < photos.count){
             cell.bookImage.image = photos[indexPath.row]
         }
 //        print(photos[indexPath.row])
