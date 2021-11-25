@@ -19,6 +19,8 @@
 		1B7667FF274FAD46008EF783 /* BookCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7667FD274FAD46008EF783 /* BookCVCell.xib */; };
 		1BB49AF1274D6DD900229E40 /* bookCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB49AF0274D6DD900229E40 /* bookCollectionCell.swift */; };
 		96EA059D274D06C600E42249 /* FavouriteTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EA059C274D06C600E42249 /* FavouriteTableVC.swift */; };
+		96FE1F20274E6D2000CEBDFC /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE1F1E274E6D2000CEBDFC /* Book+CoreDataClass.swift */; };
+		96FE1F21274E6D2000CEBDFC /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE1F1F274E6D2000CEBDFC /* Book+CoreDataProperties.swift */; };
 		C5CF791C274CFB1500806AFB /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CF791B274CFB1500806AFB /* DetailsVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		1B7667FD274FAD46008EF783 /* BookCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BookCVCell.xib; path = AbsoluteMinds/BookCVCell.xib; sourceTree = "<group>"; };
 		1BB49AF0274D6DD900229E40 /* bookCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookCollectionCell.swift; sourceTree = "<group>"; };
 		96EA059C274D06C600E42249 /* FavouriteTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableVC.swift; sourceTree = "<group>"; };
+		96FE1F1E274E6D2000CEBDFC /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
+		96FE1F1F274E6D2000CEBDFC /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C5CF791B274CFB1500806AFB /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +58,8 @@
 		1B67684D274A3C43007488BB = {
 			isa = PBXGroup;
 			children = (
+				96FE1F1E274E6D2000CEBDFC /* Book+CoreDataClass.swift */,
+				96FE1F1F274E6D2000CEBDFC /* Book+CoreDataProperties.swift */,
 				1B7667FC274FAD46008EF783 /* BookCVCell.swift */,
 				1B7667FD274FAD46008EF783 /* BookCVCell.xib */,
 				1B676858274A3C43007488BB /* AbsoluteMinds */,
@@ -161,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B676864274A3C43007488BB /* AbsoluteMinds.xcdatamodeld in Sources */,
+				96FE1F20274E6D2000CEBDFC /* Book+CoreDataClass.swift in Sources */,
 				1B67685E274A3C43007488BB /* ViewController.swift in Sources */,
 				1B7667FE274FAD46008EF783 /* BookCVCell.swift in Sources */,
 				1BB49AF1274D6DD900229E40 /* bookCollectionCell.swift in Sources */,
@@ -168,6 +175,7 @@
 				1B67685C274A3C43007488BB /* SceneDelegate.swift in Sources */,
 				96EA059D274D06C600E42249 /* FavouriteTableVC.swift in Sources */,
 				1B305CBF274D19BB00725C95 /* API.swift in Sources */,
+				96FE1F21274E6D2000CEBDFC /* Book+CoreDataProperties.swift in Sources */,
 				C5CF791C274CFB1500806AFB /* DetailsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
