@@ -8,7 +8,8 @@
 import UIKit
 
 class FavouriteTableVC: UITableViewController {
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext // instance from public class Book: NSManagedObject
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var result = [Book]()
 
     override func viewDidLoad() {
@@ -32,27 +33,27 @@ class FavouriteTableVC: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alert = UIAlertController(title: "Edit", message: nil, preferredStyle: .alert)
-        alert.addTextField()
-        let b = alert.textFields![0]
-       // textBox.text = resuit[indexPath.row].name
-        
-        let saveAtion = UIAlertAction(title: "save", style: .default, handler: {
-            action in
-          //  self.resuit[indexPath.row].name = textBox.text
-            
-            do { try!
-                self.context.save()
-                self.fetchDataFromDB()
-                
-            }
-        })
-        let cancelAtion = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        alert.addAction(saveAtion)
-        alert.addAction(cancelAtion)
-        present(alert, animated: false, completion: nil)
+    
+    
+    // Create
+    func saveData(){
+        do {
+    } catch {
+    print("Unable to save")
+      }
     }
+    
+    //Update
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       //self.result[indexPath.row].name = textBox?.text
+        self.saveData()
+        self.fetchDataFromDB()
+        do { try! self.context.save(); self.fetchDataFromDB()}
+        
+    }
+    
+    
+   
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -107,16 +108,26 @@ class FavouriteTableVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func fetchDataFromDB(){ // get the context
-   // configure the request - NSFetchRequest
+    
+    
+    //Read
+    func fetchDataFromDB(){
     let request = Book.fetchRequest()
-   // sort data
-   let sorting = NSSortDescriptor(key: "name", ascending: true)
-   request.sortDescriptors = [sorting]
-   // fetchREquest do {
-   result = try! context.fetch(request)
-   // TDOD: if you want to display data in tableView Reload tableview tableView.reloadData()
+        do {
+        result = try! context.fetch(request)
+        //TDOD: if you want to display data in tableView Reload tableview tableView.reloadData()
+        }
    }
+    
+    
+    // Delete
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? { let actionDelete = UIContextualAction(style: .destructive, title: "Delete") { _, _, handler in
+    let itemToDelete = self.result[indexPath.row]
+    self.context.delete(itemToDelete)
+    self.saveData()
+    self.fetchDataFromDB()
+    }
+    return UISwipeActionsConfiguration(actions: [actionDelete]) }
 }
 
 
