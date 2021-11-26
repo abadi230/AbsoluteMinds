@@ -1,4 +1,3 @@
-//
 //  ViewController.swift
 //  AbsoluteMinds
 //
@@ -12,15 +11,12 @@ import CoreData
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    
-    //    let api = Api()
     var library = Library()
     var books : [Source] = []
     var booksInfo : [BookInfo] = []
     
     
     var photos : [UIImage] = []
-    var titles : [String] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -33,9 +29,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         
         collectionView.register(UINib(nibName: "BookCVCell", bundle: nil), forCellWithReuseIdentifier: "BookCell")
-        getData()
         
-        //loadBooks()
+        getData()
         
         collectionView.reloadData()
     }
@@ -54,7 +49,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if (photos.indices.contains(0) && indexPath.row < photos.count){
             cell.bookImage.image = photos[indexPath.row]
         }
-        //        print(photos[indexPath.row])
+        
         return cell
     }
     
@@ -150,4 +145,3 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
 }
-
