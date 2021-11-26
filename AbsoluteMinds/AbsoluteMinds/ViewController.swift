@@ -13,34 +13,34 @@ import CoreData
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
-//    let api = Api()
+    //    let api = Api()
     var library = Library()
     var books : [Source] = []
     var booksInfo : [BookInfo] = []
-
+    
     
     var photos : [UIImage] = []
     var titles : [String] = []
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
-
+        
         collectionView.register(UINib(nibName: "BookCVCell", bundle: nil), forCellWithReuseIdentifier: "BookCell")
         getData()
-
+        
         //loadBooks()
-
+        
         collectionView.reloadData()
     }
-   
-
+    
+    
     // function from protocol UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -54,14 +54,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if (photos.indices.contains(0) && indexPath.row < photos.count){
             cell.bookImage.image = photos[indexPath.row]
         }
-//        print(photos[indexPath.row])
+        //        print(photos[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let bookDetails = (storyboard?.instantiateViewController(withIdentifier: "bookDetails")) as! DetailsVC
         
+        let book = booksInfo[indexPath.row]
+        
+        if (photos.indices.contains(0) && indexPath.row < photos.count){
+            bookDetails.bookImage = photos[indexPath.row]
+        }
+        
+        bookDetails.bookTitle = book.title
+        bookDetails.bookAuthors = (book.authors.map{$0}?.joined(separator: ", "))!
+        bookDetails.bookDate = book.publishedDate
+        bookDetails.bookDescription = book.description
+        
+        self.navigationController?.show(bookDetails, sender: nil)
     }
-
+    
     func getData() {
         
         let headers = [
@@ -84,7 +97,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let task = urlSession.dataTask(with: urlRequest as URLRequest) { (data: Data?, res: URLResponse?, err: Error?) in
             do {
                 // After you get all the info from API
-                    
+                
                 // Decode
                 let jsonDecoder = JSONDecoder()
                 let decodedRes = try jsonDecoder.decode(Library.self, from: data!)
@@ -92,27 +105,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 // Fill the local array / object
                 self.books = decodedRes.items!
                 
+                
                 // Reload the UI to show the new data fetched from API
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                     print("Books loaded to view: \(self.books.count)")
                 }
                 for book in self.books {
+                    self.booksInfo.append(book.volumeInfo)
                     if let bookImageString = book.volumeInfo.imageLinks?["thumbnail"] {
                         self.getBookImg(bookImage: bookImageString)
                     }
                 }
+                
             }catch {
                 print("data not found \(error)")
             }
         }
         task.resume()
-//    sleep(5)
     }
     
     func getBookImg(bookImage: String?) {
-//                item.imageLinks?["thumbnail"]
-//                guard let linkImage = bookImage  else { return }
+        
         // to avoid forse unwrap
         if let bookImage = bookImage {
             // change scheme
@@ -129,20 +143,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
-                } catch {
-                    print("data not found \(error)")
                 }
             }
             imageTask.resume()
         }
-                
-                
-                //        guard let imageUrl = imageLinks?["thumbnail"] else { return  }
-                //        var urlImageRequest = URLRequest(url: URL(string: imageUrl)!)
-                
-
-                
-//        sleep(10)
-        }
+        
+    }
 }
 
