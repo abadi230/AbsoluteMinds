@@ -35,8 +35,8 @@
 		1B676865274A3C47007488BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B676868274A3C47007488BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B67686A274A3C47007488BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B7667FC274FAD46008EF783 /* BookCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookCVCell.swift; path = AbsoluteMinds/BookCVCell.swift; sourceTree = "<group>"; };
-		1B7667FD274FAD46008EF783 /* BookCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BookCVCell.xib; path = AbsoluteMinds/BookCVCell.xib; sourceTree = "<group>"; };
+		1B7667FC274FAD46008EF783 /* BookCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCVCell.swift; sourceTree = "<group>"; };
+		1B7667FD274FAD46008EF783 /* BookCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCVCell.xib; sourceTree = "<group>"; };
 		1BB49AF0274D6DD900229E40 /* bookCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookCollectionCell.swift; sourceTree = "<group>"; };
 		96EA059C274D06C600E42249 /* FavouriteTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableVC.swift; sourceTree = "<group>"; };
 		96FE1F1E274E6D2000CEBDFC /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -58,10 +58,7 @@
 		1B67684D274A3C43007488BB = {
 			isa = PBXGroup;
 			children = (
-				96FE1F1E274E6D2000CEBDFC /* Book+CoreDataClass.swift */,
-				96FE1F1F274E6D2000CEBDFC /* Book+CoreDataProperties.swift */,
-				1B7667FC274FAD46008EF783 /* BookCVCell.swift */,
-				1B7667FD274FAD46008EF783 /* BookCVCell.xib */,
+				C58BE9FF27515A1B0049209D /* Model */,
 				1B676858274A3C43007488BB /* AbsoluteMinds */,
 				1B676857274A3C43007488BB /* Products */,
 			);
@@ -80,18 +77,45 @@
 			children = (
 				1B676859274A3C43007488BB /* AppDelegate.swift */,
 				1B67685B274A3C43007488BB /* SceneDelegate.swift */,
-				1B67685D274A3C43007488BB /* ViewController.swift */,
-				1BB49AF0274D6DD900229E40 /* bookCollectionCell.swift */,
-				96EA059C274D06C600E42249 /* FavouriteTableVC.swift */,
 				1B67685F274A3C43007488BB /* Main.storyboard */,
 				1B676865274A3C47007488BB /* Assets.xcassets */,
 				1B676867274A3C47007488BB /* LaunchScreen.storyboard */,
 				1B67686A274A3C47007488BB /* Info.plist */,
 				1B676862274A3C43007488BB /* AbsoluteMinds.xcdatamodeld */,
-				1B305CBE274D19BB00725C95 /* API.swift */,
-				C5CF791B274CFB1500806AFB /* DetailsVC.swift */,
+				C5E35BF927526B97005F460B /* Controller */,
+				C58BEA0227515B3C0049209D /* View */,
 			);
 			path = AbsoluteMinds;
+			sourceTree = "<group>";
+		};
+		C58BE9FF27515A1B0049209D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B305CBE274D19BB00725C95 /* API.swift */,
+				96FE1F1E274E6D2000CEBDFC /* Book+CoreDataClass.swift */,
+				96FE1F1F274E6D2000CEBDFC /* Book+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C58BEA0227515B3C0049209D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1BB49AF0274D6DD900229E40 /* bookCollectionCell.swift */,
+				1B7667FD274FAD46008EF783 /* BookCVCell.xib */,
+				1B7667FC274FAD46008EF783 /* BookCVCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C5E35BF927526B97005F460B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C5CF791B274CFB1500806AFB /* DetailsVC.swift */,
+				1B67685D274A3C43007488BB /* ViewController.swift */,
+				96EA059C274D06C600E42249 /* FavouriteTableVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
