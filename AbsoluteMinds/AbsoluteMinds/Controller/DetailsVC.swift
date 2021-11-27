@@ -8,14 +8,16 @@
 import UIKit
 
 class DetailsVC: UIViewController {
-
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var result = [Book]()
     var  bookTitle : String = " book"
     var  bookAuthors  : String = " New Authors "
     var bookDate : String = "12/2.2022"
     var bookDescription: String = ""
 
     var bookImage : UIImage?
-    
+    var bookURLImage : String?
     
     @IBOutlet weak var scrollLable: UILabel!
     @IBOutlet weak var titlelLable: UILabel!
@@ -38,7 +40,16 @@ class DetailsVC: UIViewController {
     
     
     @IBAction func btnAdd(_ sender: Any) {
+        let newBook = Book(context: context)
+        newBook.detail = bookDescription
+        newBook.title = bookTitle
+        newBook.publishedData = bookDate
+        newBook.authors = bookAuthors
+        newBook.imageLinks = bookURLImage
         
+        do {
+            
+        }
         
     }
     
