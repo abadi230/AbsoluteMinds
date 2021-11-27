@@ -48,11 +48,19 @@ class DetailsVC: UIViewController {
         newBook.imageLinks = bookURLImage
         
         do {
+            try context.save()
             
+        } catch {
+            print("Unable to save")
         }
-        
+        performSegue(withIdentifier: "fav", sender: self)
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fav"{
+            let favTVC = segue.destination as! FavouriteTableVC
+            favTVC.fackTitles.append(bookTitle)
+        }
+    }
 }
 
