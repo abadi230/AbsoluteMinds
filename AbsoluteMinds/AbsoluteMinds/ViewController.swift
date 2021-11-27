@@ -9,7 +9,7 @@ import CoreData
 
 
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
     
     var library = Library()
     var books : [Source] = []
@@ -68,6 +68,47 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         bookDetails.bookDescription = book.description
         
         self.navigationController?.show(bookDetails, sender: nil)
+    }
+    
+    @IBAction func longTapGesture(_ sender: UILongPressGestureRecognizer) {
+        let cgPoint = sender.location(in: collectionView)
+
+        guard let itemIndex = collectionView.indexPathForItem(at: cgPoint) else { return  }
+        showAlert(cgPoint, itemIndex)
+    }
+    func addFavourite(_ index: IndexPath){
+//        var indexItem : Int =  Int(index)
+        var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let newBook = Book(context: context)
+        let b = booksInfo[index.row]
+        
+        newBook.title = b.title
+        newBook.authors = b.authors?.joined(separator: ", ")
+        newBook.detail = b.description
+        newBook.publishedData = b.publishedDate
+        newBook.imageLinks = b.imageLinks?.keys.first
+        
+        do {
+             try context.save()
+        }catch{
+            debugPrint("Unable to save Book")
+        }
+        debugPrint("Book Added to you favourite")
+        
+    }
+    
+    func showAlert(_ cgPoint: CGPoint, _ itemIndex: IndexPath){
+        let alert = UIAlertController(title: "Add to Favourite", message: "", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: {_ in
+            self.addFavourite(itemIndex)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        DispatchQueue.main.async {
+            self.present(alert, animated: false, completion: nil)
+        }
     }
     
     func getData() {
