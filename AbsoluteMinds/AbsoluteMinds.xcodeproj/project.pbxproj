@@ -75,6 +75,9 @@
 		1B676858274A3C43007488BB /* AbsoluteMinds */ = {
 			isa = PBXGroup;
 			children = (
+				C58BE9FF27515A1B0049209D /* Model */,
+				C58BEA0227515B3C0049209D /* View */,
+				C5E35BF927526B97005F460B /* Controller */,
 				1B676859274A3C43007488BB /* AppDelegate.swift */,
 				1B67685B274A3C43007488BB /* SceneDelegate.swift */,
 				1B67685F274A3C43007488BB /* Main.storyboard */,
