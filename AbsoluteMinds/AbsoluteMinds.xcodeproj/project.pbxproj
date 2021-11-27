@@ -58,7 +58,6 @@
 		1B67684D274A3C43007488BB = {
 			isa = PBXGroup;
 			children = (
-				C58BE9FF27515A1B0049209D /* Model */,
 				1B676858274A3C43007488BB /* AbsoluteMinds */,
 				1B676857274A3C43007488BB /* Products */,
 			);
@@ -75,6 +74,9 @@
 		1B676858274A3C43007488BB /* AbsoluteMinds */ = {
 			isa = PBXGroup;
 			children = (
+				C58BE9FF27515A1B0049209D /* Model */,
+				C58BEA0227515B3C0049209D /* View */,
+				C5E35BF927526B97005F460B /* Controller */,
 				1B676859274A3C43007488BB /* AppDelegate.swift */,
 				1B67685B274A3C43007488BB /* SceneDelegate.swift */,
 				1B67685F274A3C43007488BB /* Main.storyboard */,
@@ -82,8 +84,6 @@
 				1B676867274A3C47007488BB /* LaunchScreen.storyboard */,
 				1B67686A274A3C47007488BB /* Info.plist */,
 				1B676862274A3C43007488BB /* AbsoluteMinds.xcdatamodeld */,
-				C5E35BF927526B97005F460B /* Controller */,
-				C58BEA0227515B3C0049209D /* View */,
 			);
 			path = AbsoluteMinds;
 			sourceTree = "<group>";
