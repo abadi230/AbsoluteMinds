@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6pD-Sp-cgR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6pD-Sp-cgR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,7 +20,9 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3a6-Uo-gf3">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.37150754829999999" green="0.49076199819999999" blue="0.54834085219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MmA-sg-dG5">
+
                                     <size key="itemSize" width="135" height="206"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -44,9 +46,11 @@
                     <navigationItem key="navigationItem" id="avl-Nh-jJS">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" id="bhq-Sq-HvR">
                             <color key="tintColor" systemColor="systemRedColor"/>
+
                             <connections>
                                 <segue destination="wXJ-H2-S2j" kind="show" id="nZs-RV-9Gz"/>
                             </connections>
+
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -201,13 +205,16 @@
                         <outlet property="imageVeiw" destination="Y11-ZV-jCf" id="1Kd-3w-UdM"/>
                         <outlet property="scrollLable" destination="u0b-7R-RjS" id="YcY-h0-nJ1"/>
                         <outlet property="titlelLable" destination="0l3-xj-96S" id="98A-J7-1db"/>
+
                         <segue destination="wXJ-H2-S2j" kind="show" identifier="segFav" id="krg-Rw-Ren"/>
+
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grA-ym-NaF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1660.8695652173915" y="66.964285714285708"/>
         </scene>
+
         <!--Navigation Controller-->
         <scene sceneID="Wpe-eA-ulj">
             <objects>
@@ -226,20 +233,24 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="66.964285714285708"/>
         </scene>
+
         <!--FavVC-->
         <scene sceneID="0QO-mU-8tI">
             <objects>
                 <viewController storyboardIdentifier="favId" id="wXJ-H2-S2j" customClass="FavVC" customModule="AbsoluteMinds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hn0-gb-k3D">
+
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gz1-zJ-U98">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellBook" rowHeight="140" id="fd9-zz-oXc" customClass="BookCell" customModule="AbsoluteMinds" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="140"/>
+
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fd9-zz-oXc" id="IWE-ZJ-OaT">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
@@ -286,6 +297,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QK0-Mo-3Rh"/>
+
                     <connections>
                         <outlet property="tableView" destination="Gz1-zJ-U98" id="Mmy-N0-DGR"/>
                     </connections>
@@ -296,7 +308,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+
         <segue reference="nZs-RV-9Gz"/>
+
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.down.heart.fill" catalog="system" width="128" height="109"/>

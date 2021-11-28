@@ -40,6 +40,7 @@ class DetailsVC: UIViewController {
     }catch{
       print("Unable to Save")
     }
+
     performSegue(withIdentifier: "segFav", sender: self)
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,4 +49,5 @@ class DetailsVC: UIViewController {
       favVC.result.append(result.last ?? nil)
     }
   }
+
 }

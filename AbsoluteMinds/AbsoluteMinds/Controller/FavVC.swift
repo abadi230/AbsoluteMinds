@@ -2,6 +2,7 @@
 //  FavVC.swift
 //  AbsoluteMinds
 //
+
 //  Created by بندر عبيد ثاري الرشيدي on 28/11/2021.
 //
 import UIKit
@@ -17,6 +18,7 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return result.count
     }
+
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellBook", for: indexPath) as? BookCell
@@ -43,8 +45,10 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
 
+
         fetchDataFromDB()
     }
+
 
     //Read
     func fetchDataFromDB(){
@@ -67,6 +71,7 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     /*
     // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
