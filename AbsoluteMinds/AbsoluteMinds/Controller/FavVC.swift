@@ -23,10 +23,32 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellBook", for: indexPath) as? BookCell
         cell?.titelLabel.text =  result[indexPath.row]?.title
-//        cell?.ImageBook.image = bookPhotos[indexPath.row]
-//        longperrs = indexPath.row
-        
         return cell!
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellBook", for: indexPath) as? BookCell
+        let alert = UIAlertController(title: "Edit", message: "Are you sure you want to update the title", preferredStyle: .alert)
+        alert.addTextField()
+        let textBox = alert.textFields![0]
+        
+        
+//        alert.addTextField { textField in
+//            textField.placeholder = "Enter Book Title"
+//            print("text: \(textField.text!) placeHolder: \(textField.placeholder)")
+//            var textBox = textField.text![0]
+
+        
+        
+        alert.addAction(UIAlertAction(title: "Submit", style: .destructive, handler: { UIAlertAction in
+            self.result[indexPath.row]?.title = textBox.text
+            
+            self.saveData()
+            self.fetchDataFromDB()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? { let actionDelete = UIContextualAction(style: .destructive, title: "Delete") { _, _, handler in
         let itemToDelete = self.result[indexPath.row]
@@ -41,15 +63,13 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-
-
+        
         fetchDataFromDB()
     }
 
-
+    
     //Read
     func fetchDataFromDB(){
         let request = Book.fetchRequest()
@@ -68,17 +88,6 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         fetchDataFromDB()
         tableView.reloadData()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
@@ -86,5 +95,6 @@ class BookCell: UITableViewCell {
 
     @IBOutlet weak var ImageBook: UIImageView!
     @IBOutlet weak var titelLabel: UILabel!
-
+    
+    
 }
