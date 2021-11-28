@@ -46,6 +46,11 @@
                     <navigationItem key="navigationItem" id="avl-Nh-jJS">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" id="bhq-Sq-HvR">
                             <color key="tintColor" systemColor="systemRedColor"/>
+
+                            <connections>
+                                <segue destination="wXJ-H2-S2j" kind="show" id="nZs-RV-9Gz"/>
+                            </connections>
+
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -201,7 +206,7 @@
                         <outlet property="scrollLable" destination="u0b-7R-RjS" id="YcY-h0-nJ1"/>
                         <outlet property="titlelLable" destination="0l3-xj-96S" id="98A-J7-1db"/>
 
-                        <segue destination="wXJ-H2-S2j" kind="show" identifier="segFav" id="Tb0-iT-Y8Z"/>
+                        <segue destination="wXJ-H2-S2j" kind="show" identifier="segFav" id="krg-Rw-Ren"/>
 
                     </connections>
                 </viewController>
@@ -210,16 +215,37 @@
             <point key="canvasLocation" x="1660.8695652173915" y="66.964285714285708"/>
         </scene>
 
+        <!--Navigation Controller-->
+        <scene sceneID="Wpe-eA-ulj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6pD-Sp-cgR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mPh-aD-zzc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KFP-dx-JVi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="82f-PS-ZT7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="66.964285714285708"/>
+        </scene>
+
         <!--FavVC-->
         <scene sceneID="0QO-mU-8tI">
             <objects>
                 <viewController storyboardIdentifier="favId" id="wXJ-H2-S2j" customClass="FavVC" customModule="AbsoluteMinds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hn0-gb-k3D">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gz1-zJ-U98">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellBook" rowHeight="140" id="fd9-zz-oXc" customClass="BookCell" customModule="AbsoluteMinds" customModuleProvider="target">
@@ -271,35 +297,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QK0-Mo-3Rh"/>
+
                     <connections>
                         <outlet property="tableView" destination="Gz1-zJ-U98" id="Mmy-N0-DGR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0fL-PF-3UL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3249" y="60"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Wpe-eA-ulj">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6pD-Sp-cgR" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mPh-aD-zzc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KFP-dx-JVi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="82f-PS-ZT7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="66.964285714285708"/>
+            <point key="canvasLocation" x="2722" y="67"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BOw-Qj-4py"/>
+
+        <segue reference="nZs-RV-9Gz"/>
+
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.down.heart.fill" catalog="system" width="128" height="109"/>

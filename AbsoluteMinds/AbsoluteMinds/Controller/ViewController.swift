@@ -169,8 +169,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             var bookImageURLComp = URLComponents(string: bookImage)
             bookImageURLComp?.scheme = "https"
             let urlImageSession = URLSession.shared
-            
+            // send request
             let imageTask = urlImageSession.dataTask(with: (bookImageURLComp?.url)!) { (data: Data?, res: URLResponse?, err: Error?) in
+                // model responds
                 do {
                     let imageBook = UIImage(data: data!)
                     // assign it to array

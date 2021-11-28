@@ -2,23 +2,24 @@
 //  FavVC.swift
 //  AbsoluteMinds
 //
-//  Created by بندر عبيد ثاري الرشيدي on 22/04/1443 AH.
-//
 
+//  Created by بندر عبيد ثاري الرشيدي on 28/11/2021.
+//
 import UIKit
 
 class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+
     var result = [Book?]()
-    
+
     @IBOutlet weak var tableView: UITableView!
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return result.count
     }
-    
+
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellBook", for: indexPath) as? BookCell
         cell?.titelLabel.text =  result[indexPath.row]?.title
@@ -34,7 +35,7 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.fetchDataFromDB()
     }
         return UISwipeActionsConfiguration(actions: [actionDelete])
-        
+
     }
 
     override func viewDidLoad() {
@@ -43,10 +44,12 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        
+
+
         fetchDataFromDB()
     }
-    
+
+
     //Read
     func fetchDataFromDB(){
         let request = Book.fetchRequest()
@@ -80,7 +83,7 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 
 class BookCell: UITableViewCell {
-    
+
     @IBOutlet weak var ImageBook: UIImageView!
     @IBOutlet weak var titelLabel: UILabel!
 
