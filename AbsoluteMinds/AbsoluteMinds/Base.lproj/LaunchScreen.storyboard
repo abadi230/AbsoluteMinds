@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,17 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="_1_" translatesAutoresizingMaskIntoConstraints="NO" id="GcZ-Jn-ENt">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="b.7jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="GcZ-Jn-ENt">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GcZ-Jn-ENt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2dh-9x-W9t"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GcZ-Jn-ENt" secondAttribute="bottom" id="Gba-1x-WAv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GcZ-Jn-ENt" secondAttribute="trailing" id="icU-cj-Kte"/>
-                            <constraint firstItem="GcZ-Jn-ENt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="p1R-nd-qLc"/>
+                            <constraint firstItem="GcZ-Jn-ENt" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="34V-4h-dSc"/>
+                            <constraint firstItem="GcZ-Jn-ENt" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="4Ip-5Z-wDK"/>
+                            <constraint firstItem="GcZ-Jn-ENt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YeN-gs-5By"/>
+                            <constraint firstAttribute="bottom" secondItem="GcZ-Jn-ENt" secondAttribute="bottom" id="jUs-yp-ErJ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,7 +36,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="_1_" width="605" height="461"/>
+        <image name="b.7jpeg" width="2048" height="1365"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
