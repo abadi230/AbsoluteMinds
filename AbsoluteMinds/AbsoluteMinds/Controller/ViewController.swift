@@ -16,7 +16,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var booksInfo : [BookInfo] = []
     
     
-    var photos : [UIImage] = []
+//    var photos : [UIImage] = []
+    var photos : [Data] = []
     private var observation : NSKeyValueObservation?
     
     deinit {
@@ -53,7 +54,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCell", for: indexPath) as! BookCVCell
         // avoid out of range
         if (photos.indices.contains(0) && indexPath.row < photos.count){
-            cell.bookImage.image = photos[indexPath.row]
+//            cell.bookImage.image = photos[indexPath.row]
+            cell.bookImage.image = UIImage(data: photos[indexPath.row])
+
         }
         
         return cell
@@ -65,7 +68,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let book = booksInfo[indexPath.row]
         
         if (photos.indices.contains(0) && indexPath.row < photos.count){
-            bookDetails.bookImage = photos[indexPath.row]
+//            bookDetails.bookImage = photos[indexPath.row]
+            bookDetails.bookImage = UIImage(data: photos[indexPath.row])
+
         }
         
         bookDetails.bookTitle = book.title
@@ -95,9 +100,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         newBook.authors = b.authors?.joined(separator: ", ")
         newBook.detail = b.description
         newBook.publishedData = b.publishedDate
-        newBook.image = photos[index.row]
-//        newBook.imageLinks = b.imageLinks?.keys.first
-//        newBook.imageLinks = image
+//        newBook.image = photos[index.row]
+        newBook.imageData = photos[index.row]
         
         
         
@@ -199,17 +203,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             // send request
             let imageTask = urlImageSession.dataTask(with: (bookImageURLComp?.url)!) { (data: Data?, res: URLResponse?, err: Error?) in
                 // model responds
-                do {
-                    let imageBook = UIImage(data: data!)
-                    // assign it to array
-                    
-                    self.photos.append(imageBook!)
-                    
-                    // update ui to show one pic
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
+                if let data = data {
+                    do {
+//                      let imageBook = UIImage(data: data!)
+                        let imageBook = data
+                        // assign it to array
+                        
+                        self.photos.append(imageBook)
+                        
+                        // update ui to show one pic
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
                     }
                 }
+
             }
             imageTask.resume()
         }

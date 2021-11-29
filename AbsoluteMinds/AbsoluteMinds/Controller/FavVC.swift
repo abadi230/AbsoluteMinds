@@ -23,7 +23,10 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavCell", for: indexPath) as! FavBookCell
 
         cell.bookTitle.text = result[indexPath.row]?.title
-        cell.bookImage.image = result[indexPath.row]?.image
+//        cell.bookImage.image = result[indexPath.row]?.image
+        if let imageData = result[indexPath.row]?.imageData {
+        cell.bookImage.image = UIImage(data: imageData)
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
