@@ -68,8 +68,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let book = booksInfo[indexPath.row]
         
         if (photos.indices.contains(0) && indexPath.row < photos.count){
-//            bookDetails.bookImage = photos[indexPath.row]
-            bookDetails.bookImage = UIImage(data: photos[indexPath.row])
+//            bookDetails.bookImage = UIImage(data: photos[indexPath.row])
+            bookDetails.bookImgData = photos[indexPath.row]
 
         }
         

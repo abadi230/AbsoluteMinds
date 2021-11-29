@@ -43,7 +43,8 @@ class DetailsVC: UIViewController {
     newBook.title = bookTitle
     newBook.publishedData = bookDate
     newBook.authors = bookAuthors
-//    newBook.imageLinks = image
+//    newBook.image = bookImage
+    newBook.imageData = bookImgData
     do {
       try context.save()
     }catch{
