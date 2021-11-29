@@ -17,7 +17,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     var photos : [UIImage] = []
+    private var observation : NSKeyValueObservation?
     
+    deinit {
+        print("Deinit observation")
+        observation?.invalidate()
+    }
     @IBOutlet weak var collectionView: UICollectionView!
     
     
@@ -33,6 +38,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         getData()
         
         collectionView.reloadData()
+        
     }
     
     
@@ -64,8 +70,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         bookDetails.bookTitle = book.title
         bookDetails.bookAuthors = (book.authors.map{$0}?.joined(separator: ", "))!
-        bookDetails.bookDate = book.publishedDate
-        bookDetails.bookDescription = book.description
+        bookDetails.bookDate = book.publishedDate ?? "-"
+        bookDetails.bookDescription = book.description ?? "-"
         
         self.navigationController?.show(bookDetails, sender: nil)
     }
@@ -77,22 +83,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         showAlert(cgPoint, itemIndex)
     }
     func addFavourite(_ index: IndexPath){
-//        var indexItem : Int =  Int(index)
-        var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        // Save the image in core data
         
         let newBook = Book(context: context)
         let b = booksInfo[index.row]
+        
         
         newBook.title = b.title
         newBook.authors = b.authors?.joined(separator: ", ")
         newBook.detail = b.description
         newBook.publishedData = b.publishedDate
-        newBook.imageLinks = b.imageLinks?.keys.first
+        newBook.image = photos[index.row]
+//        newBook.imageLinks = b.imageLinks?.keys.first
+//        newBook.imageLinks = image
+        
+        
         
         do {
              try context.save()
-        }catch{
-            debugPrint("Unable to save Book")
+        }catch let error as NSError{
+            print("Could not save. \(error), \(error.userInfo)")
         }
         debugPrint("Book Added to you favourite")
         
@@ -136,10 +148,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 // Decode
                 let jsonDecoder = JSONDecoder()
-                let decodedRes = try jsonDecoder.decode(Library.self, from: data!)
+                if let data = data {
+//                    print(String(data: data, encoding: .utf8))
+                    let decodedRes = try jsonDecoder.decode(Library.self, from: data)
+                    // Fill the local array / object
+                    self.books = decodedRes.items
+
+                } else {
+                    print("No data")
+                }
                 
-                // Fill the local array / object
-                self.books = decodedRes.items!
+                
+//                UIProgressView
                 
                 
                 // Reload the UI to show the new data fetched from API
@@ -159,6 +179,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         }
         task.resume()
+        observation = task.progress.observe(\.fractionCompleted) { progress, _ in
+            print("Loading progress: \(progress.fractionCompleted)")
+            print("Error: \(task.error?.localizedDescription)")
+            // output: Error: Optional("The Internet connection appears to be offline.")
+
+            print("Status: \(progress.localizedDescription)")
+        }
     }
     
     func getBookImg(bookImage: String?) {
@@ -175,7 +202,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 do {
                     let imageBook = UIImage(data: data!)
                     // assign it to array
+                    
                     self.photos.append(imageBook!)
+                    
                     // update ui to show one pic
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()

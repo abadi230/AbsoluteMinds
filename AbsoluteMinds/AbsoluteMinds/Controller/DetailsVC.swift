@@ -6,15 +6,20 @@
 //
 
 import UIKit
+import CoreData
+
 class DetailsVC: UIViewController {
+    
   let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
   var result = [Book]()
+    
   var bookTitle : String = " book"
   var bookAuthors : String = " New Authors "
   var bookDate : String = "12/2.2022"
   var bookDescription: String = ""
   var bookImage : UIImage?
-  var bookURLImage : String?
+  var bookImgData : Data?
+    
   @IBOutlet weak var scrollLable: UILabel!
   @IBOutlet weak var titlelLable: UILabel!
   @IBOutlet weak var authorLable: UILabel!
@@ -25,16 +30,20 @@ class DetailsVC: UIViewController {
    titlelLable.text = bookTitle
     authorLable.text = bookAuthors
     dateLable.text = bookDate
-    imageVeiw.image = bookImage
+      if let bookImgData = bookImgData {
+          imageVeiw.image = UIImage(data: bookImgData)
+
+      }
     scrollLable.text = bookDescription
   }
   @IBAction func btnAdd(_ sender: Any) {
+      // save book image in CoreData
     let newBook = Book(context: context)
     newBook.detail = bookDescription
     newBook.title = bookTitle
     newBook.publishedData = bookDate
     newBook.authors = bookAuthors
-    newBook.imageLinks = bookURLImage
+//    newBook.imageLinks = image
     do {
       try context.save()
     }catch{
@@ -45,8 +54,8 @@ class DetailsVC: UIViewController {
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "segFav"{
-      let favVC = segue.destination as! FavVC
-      favVC.result.append(result.last ?? nil)
+//      let favVC = segue.destination as! FavVC
+//      favVC.result.append(result.last ?? nil)
     }
   }
 

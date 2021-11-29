@@ -2,11 +2,11 @@
 //  Book+CoreDataProperties.swift
 //  AbsoluteMinds
 //
-//  Created by بندر عبيد ثاري الرشيدي on 19/04/1443 AH.
+//  Created by Abdullah Bajaman on 29/11/2021.
 //
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 
@@ -18,9 +18,10 @@ extension Book {
 
     @NSManaged public var authors: String?
     @NSManaged public var detail: String?
-    @NSManaged public var imageLinks: String?
+    @NSManaged public var imageData: Data?
     @NSManaged public var publishedData: String?
     @NSManaged public var title: String?
+    @NSManaged public var image: UIImage?
 
 }
 
