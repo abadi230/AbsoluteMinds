@@ -2,7 +2,7 @@
 //  Book+CoreDataClass.swift
 //  AbsoluteMinds
 //
-//  Created by بندر عبيد ثاري الرشيدي on 19/04/1443 AH.
+//  Created by Abdullah Bajaman on 29/11/2021.
 //
 //
 

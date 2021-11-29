@@ -6,13 +6,12 @@
 //  Created by بندر عبيد ثاري الرشيدي on 28/11/2021.
 //
 import UIKit
+import CoreData
 
 class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
     var result = [Book?]()
-
     @IBOutlet weak var tableView: UITableView!
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -21,12 +20,17 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellBook", for: indexPath) as? BookCell
-        cell?.titelLabel.text =  result[indexPath.row]?.title
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavCell", for: indexPath) as! FavBookCell
+
+        cell.bookTitle.text = result[indexPath.row]?.title
+//        cell.bookImage.image = result[indexPath.row]?.image
+        if let imageData = result[indexPath.row]?.imageData {
+        cell.bookImage.image = UIImage(data: imageData)
+        }
+        return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellBook", for: indexPath) as? BookCell
+
         let alert = UIAlertController(title: "Edit", message: "Are you sure you want to update the title", preferredStyle: .alert)
         alert.addTextField()
         let textBox = alert.textFields![0]
@@ -65,20 +69,30 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.register(UINib(nibName: "FavBookCell", bundle: nil), forCellReuseIdentifier: "FavCell")
         fetchDataFromDB()
+//        for (index, book) in result.enumerated() {
+//            print("i: \(index), \(book?.title)")
+//
+//        }
     }
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     //Read
     func fetchDataFromDB(){
+        //fetch the saved image from the core data
         let request = Book.fetchRequest()
+
         do {
             result = try! context.fetch(request)
-            tableView.reloadData()
         }
-    }
+        
+        tableView.reloadData()
 
+    }
+    
     func saveData(){
         do {
             try context.save()
@@ -90,11 +104,3 @@ class FavVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
-class BookCell: UITableViewCell {
-
-    @IBOutlet weak var ImageBook: UIImageView!
-    @IBOutlet weak var titelLabel: UILabel!
-    
-    
-}

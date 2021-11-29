@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class Library : Codable {
-var items : [Source]?
+var items : [Source] = []
 //var totalItems : Double
 
 }
@@ -23,8 +23,8 @@ var id : String
 struct BookInfo : Codable{
 var title: String
 var authors : [String]?
-var publishedDate : String
-var description: String
+var publishedDate : String?
+var description: String?
 var imageLinks: [String: String]?
 }
 
